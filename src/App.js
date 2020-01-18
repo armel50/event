@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './assets/App.css';
 import './views/user/SignUp'
+import SignUp from './views/user/SignUp';
 
 function App() {
   return (
-    <div>
-      
+    <div className='ui container'>
+      <SignUp/>
     </div>
   );
 }
