@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import '../../assets/authentication.css'
+import { connect } from 'react-redux';
+import SignUpUser from '../../actions/SignUpUser'
 
-export default class SignUp extends Component {
+
+ class SignUp extends Component {
     state = {
         name: '',
         email: '',
-        password: '',
+        password_digest: '',
         password_confirm: '',
         admin: false
     }
@@ -14,7 +17,7 @@ export default class SignUp extends Component {
     }
     handleSubmit = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.SignUpUser(this.state)
     }
     render() {
         return (
@@ -31,8 +34,8 @@ export default class SignUp extends Component {
                     </div>
 
                     <div>
-                        <label htmlFor='password'>Password</label>
-                        <input type='password' name='password' id='password' onChange={this.handleChange}/>
+                        <label htmlFor='password_digest'>Password</label>
+                        <input type='password' name='password_digest' id='password_digest' onChange={this.handleChange}/>
                     </div>
                     <div>
                         <label htmlFor='password_confirm'>Password Confirmation</label>
@@ -48,3 +51,7 @@ export default class SignUp extends Component {
         )
     }
 }
+const mapDispatchToProps = dispatch =>  ({
+    SignUpUser: (user)=> dispatch(SignUpUser(user))
+})
+export default connect(null,mapDispatchToProps)(SignUp)
