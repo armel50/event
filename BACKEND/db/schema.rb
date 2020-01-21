@@ -23,3 +23,20 @@ ActiveRecord::Schema.define(version: 2020_01_18_213416) do
   end
 
 end
+
+# User        
+#  id     |      name                 |  login                        |    email              | password     | profile_pic | address  | client |  evenemential
+
+# Review 
+# id      |   content                 | foreign_key= user_id          | foreign_key = place_id
+
+
+# Place
+# id      |      name                 |     address                   | ratings               | number_people |   Services_offered(stuff like security, tables ) | number_view  | foreign_key = user_id  
+
+
+# Favorite_Place
+# id      |   foreign_key = place_id  |  foreign_key = user_id
+
+# Images 
+# id      |       url                 |        foreign_key = user_id | foreign_key=place_id

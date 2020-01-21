@@ -6,7 +6,7 @@ class UsersController < ApplicationController
             render json:  {user: user}
         else
            render json: {error: "The email '#{params.require(:user).permit(:email)[:email]}' is already in use!"}
-        end
-    end
+        end      
+    end 
     
 end
